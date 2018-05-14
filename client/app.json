@@ -1,0 +1,39 @@
+{
+  "pages":[
+    "pages/commant/commant",
+    "pages/wall/wall",
+    "pages/index/index",
+    "pages/addCgi/addCgi"
+  ],
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#eb4f38",
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/wall/wall",
+        "text": "评论墙",
+        "iconPath": "image/wordN.png",
+        "selectedIconPath": "image/wordS.png"
+      },
+      {
+        "pagePath": "pages/commant/commant",
+        "text": "留言",
+        "iconPath": "image/commentN.png",
+        "selectedIconPath": "image/commentS.png"
+      }
+    ]
+  },
+
+ 
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#eb4f38",
+    "navigationBarTitleText": "毕业季",
+    "navigationBarTextStyle": "white"
+  }
+
+
+
+}
