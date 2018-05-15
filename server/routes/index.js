@@ -36,4 +36,6 @@ router.get('/demo',controllers.demo)
 
 router.get('/postcommant',controllers.postcommant)
 
+router.get('/getcount', controllers.getcount)
+
 module.exports = router

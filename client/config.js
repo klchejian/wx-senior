@@ -4,8 +4,9 @@
 
 // 此处主机域名修改成腾讯云解决方案分配的域名
 // var host = 'https://123456.qcloud.la';
-var host = 'https://hpbyrx8d.qcloud.la';
-// var host = 'https://960387872.chejiancj.club';
+// var host = 'https://hpbyrx8d.qcloud.la';
+var host = 'https://960387872.chejiancj.club';
+
 
 var config = {
 

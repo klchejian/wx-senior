@@ -34,4 +34,12 @@ CREATE TABLE `cSessionInfo` (
   KEY `skey` (`skey`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='会话管理用户信息';
 
-SET FOREIGN_KEY_CHECKS = 1;
+DROP TABLE IF EXISTS `cCountInfo`;
+CREATE TABLE `cCountInfo` (
+  `open_id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `page_count` int(10) NOT NULL, 
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `last_visit_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='统计信息';
+
+-- SET FOREIGN_KEY_CHECKS = 1;

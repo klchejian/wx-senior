@@ -50,7 +50,7 @@ Page({
         for(var i = 0; i < result.data.data.length; i++){
           var tmplist = {
             name: result.data.data[i].nickname,
-            passtime: result.data.data[i].usermoto,
+            passtime: result.data.data[i].create_time,
             text: result.data.data[i].commant,
             profile_image: result.data.data[i].userurl
           }

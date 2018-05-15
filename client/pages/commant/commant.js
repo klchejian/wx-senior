@@ -51,7 +51,7 @@ Page({
     })
 
     wx.switchTab({
-      url: '/pages/tmp/tmp',
+      url: '/pages/wall/wall',
       success: function (e) {
         var page = getCurrentPages().pop();
         if (page == undefined || page == null) return;
@@ -67,6 +67,19 @@ Page({
    */
   onLoad: function (options) {
   
+
+    qcloud.request({
+      url: `${config.service.host}/weapp/getcount`,
+      login: false,
+      success(result) {
+        util.showSuccess('您是第 ' + result.data.data[0].page_count+' 位访问者')
+      },
+      fail(error) {
+        util.showModel('请求失败', error);
+        console.log('request failaaa', error);
+      }
+    })
+
     if (app.globalData.userInfo){
       this.setData({
         userInfo: app.globalData.userInfo,
