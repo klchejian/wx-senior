@@ -1,4 +1,4 @@
-// pages/commant/commant.js
+// pages/usercommant/usercommant.js
 var qcloud = require('../../vendor/wafer2-client-sdk/index')
 var config = require('../../config')
 var util = require('../../utils/util.js')
@@ -11,19 +11,9 @@ Page({
    */
   data: {
     userInfo: {},
-    logged: app.globalData.userInfo ? true:false,
+    logged: app.globalData.userInfo ? true : false,
     takeSession: false,
-    requestResult: ''
-  },
-  getUserInfo: function (e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    app.globalData.logged = true;
-    // this.data.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      logged: true
-    })
+    commant: ''
   },
   //获取用户输入的留言
   commantInput: function (e) {
@@ -50,70 +40,49 @@ Page({
       }
     })
 
-    wx.switchTab({
-      url: '/pages/wall/wall',
-      success: function (e) {
-        var page = getCurrentPages().pop();
-        if (page == undefined || page == null) return;
-        var commant = {
-          commant: usercommant
-        }
-        page.onShow2(commant);
-      }
-    })
+   wx.navigateTo({
+     url: '../userwall/userwall',
+   })
+    // wx.redirectTo({
+    //   url: '../userwall/userwall',
+    // })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    if (app.globalData.userInfo) {
+      this.setData({
+        userInfo: app.globalData.userInfo,
+        logged: true
+      })
+    }
 
     qcloud.request({
       url: `${config.service.host}/weapp/getcount`,
       login: false,
       success(result) {
-        util.showSuccess('您是第 ' + result.data.data[0].page_count+' 位访问者')
+        util.showSuccess('您是第 ' + result.data.data[0].page_count + ' 位访问者')
       },
       fail(error) {
         util.showModel('请求失败', error);
         console.log('request failaaa', error);
       }
     })
-
-    if (app.globalData.userInfo){
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        logged: true
-      })
-    }
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        logged: true
-      })
-
-
-    }
+  
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        logged: true
-      })
-
-
-    }
+  
   },
 
   /**

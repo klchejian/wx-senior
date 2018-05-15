@@ -1,0 +1,19 @@
+<!--pages/usercommant/usercommant.wxml-->
+<!-- 登录 -->
+<view class="container">
+    <!-- <text>登录</text> -->
+    <view class='content'>
+        <image class="user-avatar" src="{{userInfo.avatarUrl}}"></image>
+        <textarea placeholder="在此留言" class='user-id' bindinput='commantInput' />
+       
+        <button class='login' bindtap='commitBtnClick' hover-class='login-hover'>提交</button>
+    </view>
+
+    <view class='triangle1'></view>
+    <view class='triangle2'></view>
+    <view class='triangle3'></view>
+    <view class='triangle4'></view>
+    <view class='triangle5'></view>
+    <view class='triangle6'></view>
+
+</view>

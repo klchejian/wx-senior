@@ -1,5 +1,8 @@
 {
   "pages":[
+    "pages/login/login",
+    "pages/userwall/userwall",
+    "pages/usercommant/usercommant",
     "pages/commant/commant",
     "pages/wall/wall",
     "pages/index/index",
