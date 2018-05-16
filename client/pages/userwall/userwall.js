@@ -11,26 +11,26 @@ Page({
   data: {
     list: []
   },
-  getCommant(options) {
-    util.showBusy('请求中...')
-    var that = this
-    qcloud.request({
-      url: `${config.service.host}/weapp/demo?username=2213`,
-      login: false,
-      // params: { username: 'ccjj', age: 33 },
-      // data: { username: 'cc2jj', age: 323 },
-      success(result) {
-        util.showSuccess('请求成功完成')
-        that.setData({
-          requestResult: JSON.stringify(result.data)
-        })
-      },
-      fail(error) {
-        util.showModel('请求失败', error);
-        console.log('request failaaa', error);
-      }
-    })
-  },
+  // getCommant(options) {
+  //   util.showBusy('请求中...')
+  //   var that = this
+  //   qcloud.request({
+  //     url: `${config.service.host}/weapp/demo?username=2213`,
+  //     login: false,
+  //     // params: { username: 'ccjj', age: 33 },
+  //     // data: { username: 'cc2jj', age: 323 },
+  //     success(result) {
+  //       util.showSuccess('请求成功完成')
+  //       that.setData({
+  //         requestResult: JSON.stringify(result.data)
+  //       })
+  //     },
+  //     fail(error) {
+  //       util.showModel('请求失败', error);
+  //       console.log('request failaaa', error);
+  //     }
+  //   })
+  // },
 
   /**
    * 生命周期函数--监听页面加载
@@ -48,9 +48,17 @@ Page({
       success(result) {
         util.showSuccess('请求成功完成')
         for (var i = 0; i < result.data.data.length; i++) {
+          var now = new Date(result.data.data[i].create_time)
+          var year = now.getFullYear();
+          var month = now.getMonth() + 1;
+          var date = now.getDate();
+          var hour = now.getHours();
+          var minute = now.getMinutes();
+          var second = now.getSeconds();
+          var commantDate =  year + "-" + month + "-" + date + " " + hour + ":" + minute + ":" + second;
           var tmplist = {
             name: result.data.data[i].nickname,
-            passtime: result.data.data[i].create_time,
+            passtime: commantDate,
             text: result.data.data[i].commant,
             profile_image: result.data.data[i].userurl
           }
